@@ -1,0 +1,24 @@
+<!-- <p [(ngModel)] = currentPlaylist.name name = 'current'>
+  
+</p> -->
+
+
+<base href=''>
+<button (click) = 'showNewPlayistId()'>New playlist</button>
+<!-- <iframe src= {{playlistLink}} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
+<!-- <p>
+  {{current}}
+</p> -->
+<!-- <iframe src= 'https://open.spotify.com/embed/user/1244653463/playlist/7sStwRbTGePw8Lo6OZxlY9' width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
+<p id = 'current'>{{currentPlaylist.name}}</p>
+<!-- <input type='text' [(ngModel)]='name' name='name'> -->
+<!-- <p>'{{curply}}'</p> -->
+<iframe [src]=  cleanUrl(currentPlaylist.name) width ="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<!-- <input value = {{currentPlaylist.name}} id = "fi" type = 'text'> -->
+<button (click) ='getAccessCode()'>Login</button>
+<button (click) = 'getConfigResponse()'>claik </button>
+<nav>
+  <a routerLink ="https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email">Login</a>
+</nav>
+<button (click) = 'postTrack()'>ADDDD</button>
+<router-outlet></router-outlet>
