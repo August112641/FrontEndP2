@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th *ngFor="let col of columns">
+      {{col}}
+    </th>
+  </tr>
+  <tr *ngFor="let user of Users | async">
+    <td *ngFor="let col of columns">
+      {{user[col]}}
+    </td>
+  </tr>
+</table>

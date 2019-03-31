@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-adduser',
@@ -10,19 +10,20 @@ export class AdduserComponent implements OnInit {
 
   constructor(private userService: UserService) { }
   
-  user: User;
+  User: object[] = [];
   id : number = 0;
   ngOnInit() {
   }
 
   getUser(){
     this.userService.getUser(this.id)
-    .subscribe((user: User)=>{
-      this.user = user;
-      console.log(this.user);
+    .subscribe((response)=>{
+      this.User = response;
+      console.log(this.User);
+      return this.User;
     });
+    
   }
-
 
 
 }
