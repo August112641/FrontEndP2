@@ -3,19 +3,16 @@
 <br>
 
 
-<p>
-  {{currentTrack.trackId}}
-</p> 
-<button (click) = 'showSomething()'>Get Track</button>
-<p id = 'current'>{{currentPlaylist.name}}</p>
+
+<p id = 'current'>{{currentPlaylist.description}}</p>
 <iframe [src]=  cleanUrl(currentPlaylist.name) width ="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<button (click) ='getAccessCode()'>Login</button>
-<button (click) = 'getConfigResponse()'>claik </button>
+<!-- <button (click) ='getAccessCode()'>Login</button>
+<button (click) = 'getConfigResponse()'>claik </button> -->
 <nav>
 <a routerLink ="https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email">Login</a>
 </nav>
 <input [(ngModel)] = 'search' name = 'search' >
-<p>{{search}}</p>
+
 <!-- <p>{{searched.tracks.items.id}}</p> -->
 <p>{{searched1.tracks.items[0].id}}</p>
 <p>{{searched1.tracks.items[0].name}}</p>

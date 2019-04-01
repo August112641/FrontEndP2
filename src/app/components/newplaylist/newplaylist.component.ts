@@ -34,7 +34,7 @@ export class NewplaylistComponent implements OnInit {
   }
 
   currentPlaylist: Playlist = {
-    name: "30hgQxcXRNnur0GGvAJPuN",
+    name: "",
     description: "",
     public: false
   }
@@ -99,89 +99,6 @@ searched: Tracks={
         total: 0
 }
 
-// searched: Tracks3={
-//   tracks:{
-//     items:{
-//       id:''
-//     }
-//   }
-// }
-
-
-// searched: Tracks2={
-//   tracks:null
-// }  
-// searchedTrack: Tracks ={
-//   show:{
-//   tracks: {
-//     href: '',
-//     items: [
-//         {
-//             album: {
-//                 album_type: '',
-//                 artists: [
-//                     {
-//                         external_urls: {
-//                             spotify: ''
-//                         },
-//                         href: '',
-//                         id: '',
-//                         name: '',
-//                         type: '',
-//                         uri: ''
-//                     }
-//                 ],
-//                 available_markets: [],
-//                 external_urls: {
-//                     spotify: ''
-//                 },
-//                 href: '',
-//                 id: '',
-                
-//                 name: '',
-//                 release_date: null,
-//                 release_date_precision: '',
-//                 total_tracks: 0,
-//                 type: '',
-//                 uri: ''
-//             },
-//             artists: [
-//                 {
-//                     external_urls: {
-//                         spotify: ''
-//                     },
-//                     href: '',
-//                     id: '',
-//                     name: '',
-//                     type: '',
-//                     uri: ''
-//                 }
-//             ],
-//             available_markets: [],
-//             disc_number: 0,
-//             duration_ms: 0,
-//             explicit: false,
-//             external_ids: {
-//                 isrc: ''
-//             },
-//             external_urls: {
-//                 spotify: ''
-//             },
-//             href: '',
-//             id: '',
-//             is_local: false,
-//             name: '',
-//             popularity: 0,
-//             preview_url: '',
-//             track_number: 0,
-//             type: '',
-//             uri: ''
-//         }
-//     ]
-    
-// }
-// }
-// }
 
 currentTrack: Track ={
   trackId:"",
@@ -194,7 +111,7 @@ currentTrack: Track ={
      this.getPlay.newPlaylist().subscribe((data: Playlist)=> this.currentPlaylist ={
 
        name: data['id'],
-       description: data['description'],
+       description: data['name'],
        public: data['public']
      
 
@@ -211,28 +128,7 @@ currentTrack: Track ={
     console.log(this.currentTrack.name)
   }
 
-  // searchForTrack(search:string){
-  //   this.getPlay.search(search).subscribe((data:Tracks2)=> this.searched ={
-  //     tracks: data['tracks.items']
-      
-  //   })
-  //   console.log(this.searched.tracks)
-  // }
-
-  // searchForTrack(search:string){
-  //   this.getPlay.search(search).subscribe((data:Tracks)=> this.searched={
-  //     href: data['track.item.href'],
-  //     items: data['Item'],
-  //     limit: data['limit'],
-  //     next: data['next'],
-  //     offset: data['offset'],
-  //     previous: data['previous'],
-  //     total: data['total']
-      
-  //       }) 
-  //     console.log(this.searched)
-  //     //console.log(data)
-  //   }
+  // 
   
     searchedForTrack(search:string){
       this.getPlay.search(search).subscribe((data:TrackJson)=> this.searched1={
@@ -242,50 +138,6 @@ currentTrack: Track ={
       console.log(this.searched1.tracks.items[0].id)
     }
 
-    // searchedForTrack(search:string){
-    //   this.getPlay.search(search).subscribe((data:Item)=> this.searched1={
-
-    //     album: data['album'],
-    //     artists: data['Artist2[]'],
-    //     available_markets: data['available_markets[]'],
-    //     disc_number: data['disk_number'],
-    //     duration_ms: data['duration_ms'],
-    //     explicit: data['explicit'],
-    //     external_ids: data['external_ids'],
-    //     external_urls: data['external_urls'],
-    //     href: data['href'],
-    //     id: data['id'],
-    //     is_local: data['is_local'],
-    //     name: data['name'],
-    //     popularity: data['popularity'],
-    //     preview_url: data['preview_url'],
-    //     track_number: data['track_number'],
-    //     type: data['type'],
-    //     uri: data['uri']
-
-
-    //   })
-    //   console.log(this.searched1);
-    // }
-  
-
-
-  // searchForTrack(search:string){
-  //     this.getPlay.search(search).subscribe((data:Tracks2)=> this.searched={
-  //       tracks: data['tracks']
-  //     })
-  //     console.log(this.searched)
-  //   }
-
-  // searchForTrack(search:string){
-  //   this.getPlay.search(search).subscribe((data:Tracks)=> this.searchedTrack={
-  //     show.['items']: data['tracks']
-      
-      
-
-  //   })
-  //   console.log(this.searchedTrack.show.tracks.items)
-  // }
 
   postTrack(playListId:string, track:string){
     this.getPlay.addTrack(playListId, track).subscribe((data: Track)=>this.currentTrack={

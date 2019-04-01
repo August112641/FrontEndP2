@@ -1,21 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
-import { Type } from '@angular/compiler';
+
 import { Playlist } from '../models/playList'
-import { Tracks,Item, TrackJson } from '../models/tacksJson';
+import { TrackJson } from '../models/tacksJson';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQBLZnJjhL01mDw0nf7sQmvyXZG6Kv7crM9Z9662zb3co_d8n5M9-dcbCTt2pBpFh42IrnrmJINIz7diWOZ722q7gEGRxyK_yb7HjuyjFjCBDdybN7LB3tk9tzWsWC3LmeJjyp2p7IWO0I8QQmEmgSjVc4nnJoo67XXZJ7qWBkJ3N8n75zk98rfhP7l7-3A2MukuHzZRQmBBpXbZd9f0_UUk9g',
+  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQDZyZ5EHRxsv9JhWqNsnI8qRVAcv2i-e_KhyPwgL1RcgVQVKqkLI0vYmX-6bOeRMuz_OZgSn-gbqKhwQ7oKP61CeOJ7bgKbmo3cUsuLpW5GYU2mlLMeYN2Zjxdm8M1n1S8cAMdYTPUvDDpUdciMiI9mh5p9tumEQkAAlWx4p-dBWlNAh4N3IavRvjgZwuvm8bw_Wi_1JeVgcBUhrjhy3wRy5A',
   'Content-Type':'application/json'})};
-var util = "";
 
-
-const loginHeader = {
-  headers: new HttpHeaders({'Authorization':'Access-Control-Allow-Origin'})
-};
 @Injectable({
   providedIn: 'root'
 })
@@ -25,19 +19,19 @@ export class GetPlayService {
   private baseUrl = 'https://api.spotify.com/v1/tracks/3n3Ppam7vgaVa1iaRUc9Lp';
   private addUrl = 'https://api.spotify.com/v1/playlists/'
   private loginUrl = 'https://accounts.spotify.com/authorize?client_id=de0fd359d4704084a2fd54a4a5798e9c&response_type=code&redirect_uri=http://localhost:8888/callback&scope=user-read-private%20user-read-email&state=34fFs29kd09'
-  private logU =     'https://accounts.spotify.com/authorize?client_id=de0fd359d4704084a2fd54a4a5798e9c&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email'
+  //private logU =     'https://accounts.spotify.com/authorize?client_id=de0fd359d4704084a2fd54a4a5798e9c&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email'
   private wUrl=  'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email'
-  private implicitUrl = 'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&redirect_uri=http://localhost:4200/callback&scope=user-read-private%20user-read-email&response_type=token&state=sdsfca'
-                          // https://accounts.spotify.com/authorize?client_id=5fe01282e94241328a84e7c5cc169164&redirect_uri=http:%2F%2Fexample.com%2Fcallback&scope=user-read-private%20user-read-email&response_type=token&state=123
+  //private implicitUrl = 'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&redirect_uri=http://localhost:4200/callback&scope=user-read-private%20user-read-email&response_type=token&state=sdsfca'
+                  
   constructor(
     private http: HttpClient
    ) { }
 
-    private log = btoa("username:password");
+    
 
     private data: Playlist = {
       
-        name: "Anugular Playlist",
+        name: "ListenIn",
         description: "name",
         public: false
     
