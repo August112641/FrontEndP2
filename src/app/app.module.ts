@@ -11,6 +11,7 @@ import { NewplaylistComponent } from './components/newplaylist/newplaylist.compo
 import { AddTrackComponent } from '../app/components/add-track/add-track.component';
 import { Router, Routes, RouterModule } from '@angular/router';
 
+
 const appRoutes: Routes = [
   {path: 'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email', 
   component: NewplaylistComponent,

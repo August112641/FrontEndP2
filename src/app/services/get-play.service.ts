@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { Type } from '@angular/compiler';
 import { Playlist } from '../models/playList'
+import { Tracks,Item, TrackJson } from '../models/tacksJson';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQDO1lHv8SMG3tLk_FEVNEfeZRuFv6MylSKC3YRfUJpwiE7sEDX9DLGYqmbdmKl_eDm-g-hPvOxq7co_mDeVyyWwtjvoZTyx7-H5pcGq1lmflOZSQetROfRDoQu2KopjdgvoU9FkTGjijBBdsgT-K_qYIAb3dv84OLXPLMo20x5_OA0298EVDvs5culNfsGt1Rd_mrPrZodJIic8VI8QlSqHtg',
+  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQBLZnJjhL01mDw0nf7sQmvyXZG6Kv7crM9Z9662zb3co_d8n5M9-dcbCTt2pBpFh42IrnrmJINIz7diWOZ722q7gEGRxyK_yb7HjuyjFjCBDdybN7LB3tk9tzWsWC3LmeJjyp2p7IWO0I8QQmEmgSjVc4nnJoo67XXZJ7qWBkJ3N8n75zk98rfhP7l7-3A2MukuHzZRQmBBpXbZd9f0_UUk9g',
   'Content-Type':'application/json'})};
 var util = "";
 
@@ -60,13 +61,15 @@ export class GetPlayService {
       return this.http.post<Track>(this.addUrl+playlist+"/tracks?uris=spotify:track:"+track,"", httpOptions);
     }
 
+    
+
    newPlaylist() : Observable<Playlist>{
 
     return this.http.post<Playlist>(this.creatUrl, this.data, httpOptions);
 
    }
 
-    getSomething(){
+    getSomething() {
       return this.http.get(this.baseUrl, httpOptions);
     }
 
@@ -74,12 +77,21 @@ export class GetPlayService {
     //   return this.http.get(this.searchUrl+query+'&type=track&limit=1',httpOptions);
 
     // }
-    search(query:string):Observable<Tracks3>{
-      return this.http.get<Tracks3>(this.searchUrl+query+'&type=track&limit=1',httpOptions);
+    // search(query:string):Observable<Tracks3>{
+    //   return this.http.get<Tracks3>(this.searchUrl+query+'&type=track&limit=1',httpOptions);
       
-    }
+    // }
+    // search(query:string):Observable<Item>{
+    //   return this.http.get<Item>(this.searchUrl+query+'&type=track&limit=1',httpOptions);
+    // }
+    
+    search(query:string):Observable<TrackJson>{
+        return this.http.get<TrackJson>(this.searchUrl+query+'&type=track&limit=1',httpOptions);
+      }
 
    getTrack(id: string ):Observable<Track>{
      return this.http.get<Track>(this.baseUrl, httpOptions);
    }
+
+
 }

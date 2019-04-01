@@ -16,11 +16,11 @@
 </nav>
 <input [(ngModel)] = 'search' name = 'search' >
 <p>{{search}}</p>
-<p>{{searched.tracks.items.id}}</p>
-<li *ngFor= "let tracks of tracks">
-  {{searched.tracks}}
-</li>
-<button (click) = 'searchForTrack(search)'>Search</button>
-<button (click) = 'postTrack(currentPlaylist.name, currentTrack.trackId)'>Add Track</button>
+<!-- <p>{{searched.tracks.items.id}}</p> -->
+<p>{{searched1.tracks.items[0].id}}</p>
+<p>{{searched1.tracks.items[0].name}}</p>
+<p>{{searched1.tracks.items[0].artists[0].name}}</p>
+<button (click) = 'searchedForTrack(search)'>Search</button>
+<button (click) = 'postTrack(currentPlaylist.name, searched1.tracks.items[0].id)'>Add Track</button>
 
 <router-outlet></router-outlet>
