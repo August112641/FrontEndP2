@@ -29,6 +29,7 @@ import { LoginComponent } from './components/login/login.component';
 =======
 >>>>>>> 2f5fe576621b5b7ff5b4d38965861a06c5eec76a
 
+
 const appRoutes: Routes = [
   {path: 'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email', 
   component: NewplaylistComponent,
