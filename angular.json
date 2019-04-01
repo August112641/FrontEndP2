@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "AngularP2": {
+    "Front": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/AngularP2",
+            "outputPath": "dist/Front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -58,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "AngularP2:build"
+            "browserTarget": "Front:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "AngularP2:build:production"
+              "browserTarget": "Front:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "AngularP2:build"
+            "browserTarget": "Front:build"
           }
         },
         "test": {
@@ -103,7 +103,7 @@
         }
       }
     },
-    "AngularP2-e2e": {
+    "Front-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -112,11 +112,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "AngularP2:serve"
+            "devServerTarget": "Front:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "AngularP2:serve:production"
+              "devServerTarget": "Front:serve:production"
             }
           }
         },
@@ -132,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "AngularP2"
+  "defaultProject": "Front"
 }
