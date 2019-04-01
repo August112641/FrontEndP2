@@ -18,13 +18,20 @@ export class UserService {
     console.log("Getting user"+id);
     return this.http.get<User[]>(this.url+"/"+id);
   }
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 2f5fe576621b5b7ff5b4d38965861a06c5eec76a
 
   getColumns(): string[] {
     return ["id", "stuff", "otherstuff", "morestuff"]
   };
+<<<<<<< HEAD
 
   login() {
     console.log("loggin in...");
     return this.http.post<User>(this.url);
   }
+=======
+>>>>>>> 2f5fe576621b5b7ff5b4d38965861a06c5eec76a
 }
