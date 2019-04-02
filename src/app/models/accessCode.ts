@@ -1,3 +1,0 @@
-interface AccessCode{
-    code: string
-}
