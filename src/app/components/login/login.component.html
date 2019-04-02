@@ -1,7 +1,12 @@
-<form>
+<form (submit)="login($event)">
   <label for="email">Email:</label>
-  <input type="text" name="email" #email="ngModel" [(ngModel)]=user.email required><br>
-  <label for="email">Password:</label>
-  <input type="text" name="password" #password="ngModel" [(ngModel)]=user.password required><br>
-  <button (click)="login()">Login </button><button (click)="register()">Register</button> 
+  <input type="text" name="email" id="email" required><br>
+  <label for="password">Password:</label>
+  <input type="password" name="password" id="password" required><br>
+  <label [hidden]="!hide" for="password2">Confirm Password:</label>
+  <input [hidden]="!hide" type="password" name="password2" id="password2" required><br>
+  <input [hidden]="hide" type="submit" value="Login"><br>
+
 </form>
+
+<button (click)="showForm()">Signup</button>
