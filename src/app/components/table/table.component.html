@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th *ngFor="let col of columns">
+      {{col}}
+    </th>
+  </tr>
+<<<<<<< HEAD
+  <tr *ngFor="let user of Users">
+    <td *ngFor="let col of columns;let i = index">
+      {{user[i]}}
+=======
+  <tr *ngFor="let user of Users | async">
+    <td *ngFor="let col of columns">
+      {{user[col]}}
+>>>>>>> 2f5fe576621b5b7ff5b4d38965861a06c5eec76a
+    </td>
+  </tr>
+</table>

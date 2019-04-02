@@ -1,0 +1,30 @@
+
+<button (click) = 'showNewPlayistId()'>New playlist</button>
+<br>
+
+
+<p>
+  {{currentTrack.trackId}}
+</p> 
+<button (click) = 'showSomething()'>Get Track</button>
+<p id = 'current'>{{currentPlaylist.name}}</p>
+<iframe [src]=  cleanUrl(currentPlaylist.name) width ="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<button (click) ='getAccessCode()'>Login</button>
+<button (click) = 'getConfigResponse()'>claik </button>
+<nav>
+<a routerLink ="https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email">Login</a>
+</nav>
+<input [(ngModel)] = 'search' name = 'search' >
+<p>{{search}}</p>
+<p>{{searched.tracks.items.id}}</p>
+<li *ngFor= "let tracks of tracks">
+  {{searched.tracks}}
+</li>
+<button (click) = 'searchForTrack(search)'>Search</button>
+<button (click) = 'postTrack(currentPlaylist.name, currentTrack.trackId)'>Add Track</button>
+
+<<<<<<< HEAD
+<!-- <router-outlet></router-outlet> -->
+=======
+<router-outlet></router-outlet>
+>>>>>>> 2f5fe576621b5b7ff5b4d38965861a06c5eec76a
