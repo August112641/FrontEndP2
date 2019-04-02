@@ -1,0 +1,23 @@
+
+<button (click) = 'showNewPlayistId()'>New playlist</button>
+<br>
+
+
+
+<p id = 'current'>{{currentPlaylist.description}}</p>
+<iframe [src]=  cleanUrl(currentPlaylist.name) width ="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<!-- <button (click) ='getAccessCode()'>Login</button>
+<button (click) = 'getConfigResponse()'>claik </button> -->
+<nav>
+<a routerLink ="https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email">Login</a>
+</nav>
+<input [(ngModel)] = 'search' name = 'search' >
+
+<!-- <p>{{searched.tracks.items.id}}</p> -->
+<p>{{searched1.tracks.items[0].id}}</p>
+<p>{{searched1.tracks.items[0].name}}</p>
+<p>{{searched1.tracks.items[0].artists[0].name}}</p>
+<button (click) = 'searchedForTrack(search)'>Search</button>
+<button (click) = 'postTrack(currentPlaylist.name, searched1.tracks.items[0].id)'>Add Track</button>
+
+<router-outlet></router-outlet>
