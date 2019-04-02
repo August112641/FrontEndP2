@@ -30,8 +30,7 @@ export class LoginServiceService {
 //   }
 
   login() {
-    // tslint:disable-next-line: max-line-length
-        return this.http.get(this.url, httpOptions);
+        return this.http.get(this.url);
       }
 
 }

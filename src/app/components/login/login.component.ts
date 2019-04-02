@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loginService.login().subscribe((res: any) => {
-      alert("Success!");
-      this.myData=res.data;
+      alert('Sucess!');
+      this.myData =res.data;
       console.log('res is ', res.data);
     });
   }
