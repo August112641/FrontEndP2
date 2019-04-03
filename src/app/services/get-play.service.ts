@@ -7,7 +7,7 @@ import { TrackJson } from '../models/tacksJson';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQDZyZ5EHRxsv9JhWqNsnI8qRVAcv2i-e_KhyPwgL1RcgVQVKqkLI0vYmX-6bOeRMuz_OZgSn-gbqKhwQ7oKP61CeOJ7bgKbmo3cUsuLpW5GYU2mlLMeYN2Zjxdm8M1n1S8cAMdYTPUvDDpUdciMiI9mh5p9tumEQkAAlWx4p-dBWlNAh4N3IavRvjgZwuvm8bw_Wi_1JeVgcBUhrjhy3wRy5A',
+  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQC9p9yPhztBb_amNSqb80dqiz3_mg8Fu7SnxA41PThMfr1xMmSsnCFqoZNmDQsBy5z3JMSb_i2BrBXVkMbxngTOcKEkLqBzLvXZk5yWUBz5Hc4s7CKAKI9BZexIUxun1QJoogUvZf_tiSj44nhkDhIBwHS_mUBC426kCGGc06WbSeyOE3zRfFbqq9k781QIiPtuuyjaW_i9q7bmp5e0IiwtVQ',
   'Content-Type':'application/json'})};
 
 @Injectable({
@@ -23,9 +23,7 @@ export class GetPlayService {
   private wUrl=  'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email'
   //private implicitUrl = 'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&redirect_uri=http://localhost:4200/callback&scope=user-read-private%20user-read-email&response_type=token&state=sdsfca'
                   
-  constructor(
-    private http: HttpClient
-   ) { }
+  constructor(private http: HttpClient) { }
 
     
 

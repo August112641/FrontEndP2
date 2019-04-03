@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { GetPlayService } from '../../services/get-play.service';
 
 import { DomSanitizer } from '@angular/platform-browser';
-import { SafeUrl } from '@angular/platform-browser' 
-// import { AddTrackComponent } from '..components/add-track/add-track.component';
-import { JsonPipe } from '@angular/common';
+
+
+
 import { Playlist } from '../../models/playList';
 import { Item, Tracks, Album, Artist2,ExternalIds,ExternalUrls4, TrackJson } from '../../models/tacksJson';
 
@@ -19,7 +19,8 @@ import { Item, Tracks, Album, Artist2,ExternalIds,ExternalUrls4, TrackJson } fro
   styleUrls: ['./newplaylist.component.css']
 })
 export class NewplaylistComponent implements OnInit {
- 
+ green  ='Green.jpg';
+ orange = 'Orange.jpg';
   name: string = 'lu';
 
   fullLink: string = 'https://open.spotify.com/embed/user/1244653463/playlist/0ugR4wxPu1IUQ3r8P7vCLk'
@@ -47,7 +48,9 @@ export class NewplaylistComponent implements OnInit {
     console.log(this.searched)
   }
   
-
+  getImage(){
+    return 'url(src/assets/Green.jpg)'
+  }
 
 getCode(){
   console.log(this.getPlay.login().subscribe)
