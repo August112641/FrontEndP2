@@ -1,6 +1,6 @@
 export interface User {
     id: number,
-    email: String,
-    password: String,
+    Email: String,
+    Password: String,
     playlistid: number
 }

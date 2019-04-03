@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdduserComponent } from './components/adduser/adduser.component';
-import { CreateuserComponent } from './components/createuser/createuser.component';
 import { TableComponent } from './components/table/table.component';
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { TrackComponentComponent } from '../app/components/track-component/track-component.component';
@@ -17,7 +16,7 @@ import { AddTrackComponent } from '../app/components/add-track/add-track.compone
 import { Router, Routes, RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
-
+ 
 const appRoutes: Routes = [
   {path: 'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email', 
   component: NewplaylistComponent,
@@ -29,7 +28,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AdduserComponent,
-    CreateuserComponent,
     TableComponent,
     TrackComponentComponent,
     NewplaylistComponent,
@@ -39,7 +37,7 @@ const appRoutes: Routes = [
     LoginComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes,{enableTracing: true}),

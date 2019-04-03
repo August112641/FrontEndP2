@@ -1,12 +1,25 @@
-<form (submit)="login($event)">
-  <label for="email">Email:</label>
-  <input type="text" name="email" id="email" required><br>
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password" required><br>
-  <label [hidden]="!hide" for="password2">Confirm Password:</label>
-  <input [hidden]="!hide" type="password" name="password2" id="password2" required><br>
-  <input [hidden]="hide" type="submit" value="Login"><br>
+<html>
+<body>
 
-</form>
+<div id="header" class = "container-fluid">
+  <div>Listen'In</div>
+</div>
 
-<button (click)="showForm()">Signup</button>
+<h1 style="color:rgb(56, 190, 51); text-align: center" >Login</h1>
+    <div class="form">
+    <form (submit)="login($event)">
+      <label for="email" style="margin-right: 115px;">Email:</label><br>
+      <input type="email" name="email" id="email" style="background-color:black; color:rgb(85, 255, 85); border:2px solid rgb(85, 255, 85)" required><br>
+      <label for="password" style="margin-right: 100px;" >Password:</label><br>
+      <input type="password" name="password" id="password" style="background-color:black; color:rgb(85, 255, 85); border:2px solid rgb(85, 255, 85)" required><br>
+      <label [hidden]="hide" for="password2" style="margin-right: 50px;">Confirm Password:</label><br>
+      <input [hidden]="hide" type="password" name="password2" id="password2" style="background-color:black; color:rgb(85, 255, 85); border:2px solid rgb(85, 255, 85)" required><br>
+        <div>
+            <input [hidden]="!hide" type="submit" value="Login"><br>
+            <button class="button" (click)="showForm()"> {{hide ? "Register" : "Signup"}}</button><br>
+            <a *ngIf="btncontent != 'Signup'" href="#" (click)="showForm()" style="background-color:black; color:rgb(85, 255, 85)">Back to Login</a>
+        </div>
+    </form>
+  </div>
+  </body>
+  </html>

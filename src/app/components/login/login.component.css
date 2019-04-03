@@ -1,0 +1,58 @@
+body {
+    background-color: black;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:rgb(103, 250, 115); 
+    border:0 none;
+    cursor:pointer;
+    color: black;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+input[type=submit]:hover {
+    background-color: black;
+    color: rgb(103, 250, 115);
+}
+
+.button {
+    padding:5px 15px; 
+    background:rgb(103, 250, 115); 
+    border:0 none;
+    cursor:pointer;
+    color: black;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+.button:hover{
+    background-color: black;
+    color: rgb(103, 250, 115);
+}
+
+#header {
+    background-color:rgb(103, 250, 115);
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 100px;
+    height: 150px;
+    background-size: cover;   
+}
+
+.form {
+    background-image: url("https://pre00.deviantart.net/88ea/th/pre/f/2017/201/5/2/mmd_green_flare_by_kkinatv-dbgzlzd.png");
+    background-size: cover;
+    color: rgb(103, 250, 103);
+    padding: 10px;
+    border: 2px solid rgb(103, 250, 115);
+    border-radius: 5px;
+    text-align: center;
+    width: 45%;
+    height:50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
