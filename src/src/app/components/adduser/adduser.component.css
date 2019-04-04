@@ -1,3 +1,23 @@
-body{
+.table{
     background-color: #1db954;
+    border: 50px, #1db954;
+    margin: 50px, #1db954;
+    padding: 50px, #1db954;
+}
+
+
+/* body{
+    background-color: green;
+} */
+
+ /* #friends{
+    background-color: #1db954;
+} */
+
+th,h1,td{
+    color: black
+}
+
+#greenH, #friends{
+    color: #1db954
 }

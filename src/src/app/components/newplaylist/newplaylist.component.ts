@@ -31,7 +31,6 @@ export class NewplaylistComponent implements OnInit {
 
   PlaylistHref: string = "https://open.spotify.com/embed/user/1244653463/playlist/"
 
-  curply: string = "7sStwRbTGePw8Lo6OZxlY9";
 
   currentCode: AccessCode = {
     code:""
@@ -56,22 +55,19 @@ export class NewplaylistComponent implements OnInit {
     return 'url(src/assets/Green.jpg)'
   }
 
-getCode(){
-  console.log(this.getPlay.login().subscribe)
-
-  return this.getPlay.login().subscribe
-}
-
-  getAccessCode(){
-    // console.log()
-    window.location.href = 'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email';
-    this.getPlay.getConfigResponse()
-    console.log(this.getAccessCode)
-    return this.getPlay.login().subscribe((code: AccessCode)=> this.currentCode = {
-      code: code['code']
-    })
+  savePlaylist(){
+    localStorage.setItem("savedPlayList", this.currentPlaylist.name)
+    
   }
 
+  suggestPlaylist(){
+
+  }
+
+ saveAccessCode(code:string){
+    localStorage.setItem("accessCode", code)
+    console.log(code)
+ }
 
 searched1: TrackJson= {
   tracks: null

@@ -1,8 +1,8 @@
 export interface User {
   id: number,
-  Email: String,
-  Password: String
-  playlistid: number,
+  email: String,
+  password: String
+  playlistId: String,
 }
 
 export interface Users{
@@ -12,3 +12,28 @@ export interface Users{
 export interface Users2{
   Users1 : User[]
 }
+export interface playlist{
+  id: number,
+  playlist:[
+    {
+      id: number
+    }
+  ]
+}
+
+export interface UserP{
+  id: number,
+  email: String,
+  password: String,
+  playlist: Object[]
+}
+
+// { 
+//   "id": 1050,
+//   "playlist":[
+//     {
+//       "id":"ef3r4w"
+//     },
+//     {"id":"EWAF57"}
+//   ]
+// }

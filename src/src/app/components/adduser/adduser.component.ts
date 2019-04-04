@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Users2 } from 'src/app/models/user';
+import { JsonPipe } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-adduser',
@@ -9,10 +12,21 @@ import { Users2 } from 'src/app/models/user';
 })
 export class AdduserComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  playlistFrame: string = 'https://open.spotify.com/embed/user/1244653463/playlist/'
+  
+
+
+  constructor(private userService: UserService, private sanitize:DomSanitizer) { }
+  
+
+  obj = localStorage.getItem("LoggedUser");
+  obj2 = JSON.parse(this.obj);
+  SplaylistId = localStorage.getItem("savedPlayList")
   
   ngOnInit() {
     this.getUser1()
+    console.log(this.obj2)
+    console.log(this.SplaylistId)
   }
  
 currentUsers1: Users2 ={
@@ -25,6 +39,18 @@ getUser1(){
     
   })
   console.log(this.currentUsers1.Users1)
+}
+link: string = 'https://open.spotify.com/embed/user/1244653463/playlist/';
+
+cleanUrl(append: string){
+  return   this.sanitize.bypassSecurityTrustResourceUrl(this.link + append)
+}
+
+
+
+selectUser(sel: string){
+  console.log(sel)
+  return sel
 }
 
 }

@@ -2,7 +2,9 @@
 
 
 <body>
+    <app-navbar></app-navbar> 
   <div class = "container">
+    <h1 id = "friends">Friends List</h1>
 <table class = 'table'>
 <tr>
   <th>
@@ -16,13 +18,24 @@
       <td >
         {{user.email}}
       </td>
-      <td>
+      <td (click) = selectUser(user.id)>
         {{user.id}}
       </td>
     </tr>
-  
 </table>
+<div class= "row">
+  <div class = "col-md-8">
+    <h1 id = "greenH">Your Playlists</h1>
+    <iframe [src]=  cleanUrl(obj2.playlistId) width ="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+  <div class = "col-md-4">
+    <h1 id = "greenH">Suggested Playlist</h1>
+    <iframe [src]=  cleanUrl(SplaylistId) width ="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+
 </div>
+</div>
+
 <!-- <button (click) ='getUser1()'>New Get User</button> -->
 </body>
 
