@@ -46,6 +46,7 @@ cleanUrl(append: string){
 }
 
 selectUser(sel: string){
+  
   console.log(sel)
 }
 
