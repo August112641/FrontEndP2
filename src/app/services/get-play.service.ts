@@ -7,7 +7,7 @@ import { TrackJson } from '../models/tacksJson';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQBFAcMHFR8dKz2s3RUQJL7rKu_svmblQG0HbDftVqDhHQ3VRXBq0HFyBBmz4NPk96Jeob6SJl521zaYSgpFyo2i3rjK6RV1RrJ6ZVMny6DGvYYjR4-esX3GlD9PZ7XJzntCOqxoWmaB5VQMs0P_wD0JHJ-se7-Uqj8somU3DMe2CTWpBm6RPLP9lGz6Lo9w8U5nwedOAzLU8Ui_jOZ6aA7wrQ',
+  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQDlDzq4sz5kW9DgWJ789VCTOAa0r6GOX5B5MPupLhUw41DSrlF6a2kQXRkh0HYj0zAndE7_K7xK3EMjfVFoVml1o09O2zSct_Yx3gayKlXLgrlzn6z33N95Fx72iYsiJMMgE5cSyASl6jA190G_4NU6H64Wxh7IegH6MPo8aYJXzS-M2aJGkPeKq4nKA0Gfa8D-I-h7t_rrJ6gAOgN4GmDA7Q',
   'Content-Type':'application/json'})};
 
 @Injectable({

@@ -16,22 +16,19 @@ export class LoginComponent implements OnInit {
   }
 
   User: User = {
-      id : null,
-      Email : '',
-      Password : '',
-      playlistid: null
+      id: null, 
+      email : '',
+      password : '',
+      playlistId: ''  
   }
 
   hide: boolean = true; 
-  btncontent: string = 'Signup';
   
   showForm(){
     if(this.hide == true){
       this.hide = false;
-      this.btncontent = 'register'
     } else if (this.hide == false) {
       this.hide = true;
-      this.btncontent = 'Signup';
     } else {
       return;
     }
@@ -39,20 +36,27 @@ export class LoginComponent implements OnInit {
   }
 
   login(event) {
-
-    if(this.btncontent != 'Signup'){
-      console.log(this.btncontent);
-      return;
+      
+      event.preventDefault()
+      const target = event.target
+      this.User.email = target.querySelector('#email').value
+      this.User.password = target.querySelector('#password').value
+      this.userService.loginUser(this.User).subscribe((response) => {
+          console.log(response );
+          console.log(response);
+          localStorage.setItem("LoggedUser",JSON.stringify(response))
+          })
     }
-    
-  
-    event.preventDefault()
-    const target = event.target
-    this.User.Email = target.querySelector('#email').value
-    this.User.Password = target.querySelector('#password').value
-    this.userService.loginUser(this.User).subscribe((response) => {
-      console.log(response);
-    })
-  }
+
+    addUser(event) {
+      event.preventDefault()
+      const target = event.target
+      this.User.email = target.querySelector('#email').value
+      this.User.password = target.querySelector('#password').value
+      this.userService.addUser(this.User).subscribe((response) => {
+        console.log(response );
+        })
+
+    }
 
 }

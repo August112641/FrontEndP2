@@ -16,13 +16,14 @@ export class UserService {
   id:number;
 
   private url= 'https://jsonplaceholder.typicode.com/posts';
-  loginUrl = 'http://192.168.60.102:8082/MVCBackEnd/users';
+  loginUrl = 'http://3.83.115.122:8085/MVCBackEnd/users/login';
+  addUrl = 'http://3.83.115.122:8085/MVCBackEnd/users';
 
   
   constructor(private http: HttpClient) { }
 
     getUsers2(): Observable <Object[]>{
-      return this.http.get<Object[]>(this.loginUrl)
+      return this.http.get<Object[]>(this.addUrl)
     }
   
 
@@ -32,13 +33,15 @@ export class UserService {
   }
 
 
-  getColumns(): string[] {
-    return ["id", "stuff", "otherstuff", "morestuff"]
-  };
+
+  addUser(User): Observable<User>{
+    console.log("Registering..."+User.email); 
+    return this.http.post<User>(this.addUrl, User, this.HttpOptions);
+  }
 
 
   loginUser(User): Observable<User>{
-    console.log("loggin in..."+User); 
+    console.log("loggin in..."+User.email); 
     return this.http.post<User>(this.loginUrl, User, this.HttpOptions);
   }
 
