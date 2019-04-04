@@ -14,9 +14,9 @@ const routes: Routes = [
     component: AdduserComponent
   },
   {
-    path: 'logout',
+    path: '',
     component: LoginComponent
-  }
+  },
 
 ];
 
