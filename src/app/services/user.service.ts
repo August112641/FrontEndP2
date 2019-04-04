@@ -1,19 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../models/user';
 import { Observable } from 'rxjs';
+
+import { User, Users, Users2 } from '../models/user';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class UserService {
 
   HttpOptions = {headers: new HttpHeaders ({'Content-Type': 'application/json'})}
-  id: number;
+  id:number;
+
+  private url= 'https://jsonplaceholder.typicode.com/posts';
+  loginUrl = 'http://3.83.115.122:8085/MVCBackEnd/users/login';
+  addUrl = 'http://3.83.115.122:8085/MVCBackEnd/users'
+
+  
   constructor(private http: HttpClient) { }
 
-  url: string = 'https://jsonplaceholder.typicode.com/posts';
-  loginUrl = 'http://192.168.60.102:8082/MVCBackEnd/users'
+    getUsers2(): Observable <Object[]>{
+      return this.http.get<Object[]>(this.url)
+    }
+  
 
   getUser(id: number): Observable <User[]> {
     console.log("Getting user"+id);
@@ -24,8 +36,14 @@ export class UserService {
     return ["id", "stuff", "otherstuff", "morestuff"]
   };
 
+  addUser(User): Observable<User>{
+    console.log("Registering..."+User.email); 
+    return this.http.post<User>(this.addUrl, User, this.HttpOptions);
+  }
+
   loginUser(User): Observable<User>{
-    console.log("loggin in..."+User); 
+    console.log("loggin in..."+User.email); 
     return this.http.post<User>(this.loginUrl, User, this.HttpOptions);
   }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { Users2 } from 'src/app/models/user';
 
 @Component({
   selector: 'app-adduser',
@@ -10,26 +11,19 @@ export class AdduserComponent implements OnInit {
 
   constructor(private userService: UserService) { }
   
-  Users: object[] = [];
-  id : number = 0;
   ngOnInit() {
   }
+ 
+currentUsers1: Users2 ={
+Users1: []
+}
 
-  getUser(){
-    this.userService.getUser(this.id)
-    .subscribe((response)=>{
-      this.Users = response;
-      console.log(this.Users);
-      return this.Users;
-    });
+getUser1(){
+  this.userService.getUsers2().subscribe((data: [])=> this.currentUsers1={
+    Users1: data
     
-  }
-
-  displayUsers(){
-    this.Users[0] = this.userService.getUser(this.id);
-    return this.Users;
-    //all data in mock-data.ts
-    }
-
+  })
+  console.log(this.currentUsers1.Users1)
+}
 
 }

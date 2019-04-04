@@ -7,7 +7,7 @@ import { Playlist } from '../models/playList'
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQDO1lHv8SMG3tLk_FEVNEfeZRuFv6MylSKC3YRfUJpwiE7sEDX9DLGYqmbdmKl_eDm-g-hPvOxq7co_mDeVyyWwtjvoZTyx7-H5pcGq1lmflOZSQetROfRDoQu2KopjdgvoU9FkTGjijBBdsgT-K_qYIAb3dv84OLXPLMo20x5_OA0298EVDvs5culNfsGt1Rd_mrPrZodJIic8VI8QlSqHtg',
+  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQCu0U7A35nrnzm4h1KIM34Ybs8s4j21QaeRTSHAySFTksnmu1KMpw6E5n_n65lF_gu77BCZN-C5R6Ic7LgYqfaQy3dTxesgEPKcEt9zUxXdWJ_xBYeucUYjp6CRQOAnYjBEixB65x5WFm98tCPzSSGS_HhjxRwwzm6UCtMo2VoDl82z8zTzpX-T2ff1ObFBjzt_y2cVCQWIw1E0RlGIt5QqDQ',
   'Content-Type':'application/json'})};
 var util = "";
 

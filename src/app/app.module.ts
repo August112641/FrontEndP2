@@ -12,7 +12,6 @@ import { TableComponent } from './components/table/table.component';
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { TrackComponentComponent } from '../app/components/track-component/track-component.component';
 import { NewplaylistComponent } from './components/newplaylist/newplaylist.component';
-import { AddTrackComponent } from '../app/components/add-track/add-track.component';
 import { Router, Routes, RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
@@ -31,10 +30,9 @@ const appRoutes: Routes = [
     TableComponent,
     TrackComponentComponent,
     NewplaylistComponent,
-    AddTrackComponent,
-    TableRowComponent,
-    NavbarComponent,
-    LoginComponent
+    TableRowComponent,   
+    NavbarComponent, 
+    LoginComponent      
   ],
   imports: [
     BrowserModule, 

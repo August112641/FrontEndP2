@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { GetPlayService } from '../../services/get-play.service';
 
 import { DomSanitizer } from '@angular/platform-browser';
-import { SafeUrl } from '@angular/platform-browser' 
-// import { AddTrackComponent } from '..components/add-track/add-track.component';
-import { JsonPipe } from '@angular/common';
+
+
+
 import { Playlist } from '../../models/playList';
+import { Item, Tracks, Album, Artist2,ExternalIds,ExternalUrls4, TrackJson } from '../../models/tacksJson';
+
 
 
 //  var val:string = (<HTMLInputElement>document.getElementById("fi")).value;
@@ -17,7 +19,8 @@ import { Playlist } from '../../models/playList';
   styleUrls: ['./newplaylist.component.css']
 })
 export class NewplaylistComponent implements OnInit {
- 
+ green  ='Green.jpg';
+ orange = 'Orange.jpg';
   name: string = 'lu';
 
   fullLink: string = 'https://open.spotify.com/embed/user/1244653463/playlist/0ugR4wxPu1IUQ3r8P7vCLk'
@@ -32,7 +35,7 @@ export class NewplaylistComponent implements OnInit {
   }
 
   currentPlaylist: Playlist = {
-    name: "30hgQxcXRNnur0GGvAJPuN",
+    name: "",
     description: "",
     public: false
   }
@@ -45,7 +48,9 @@ export class NewplaylistComponent implements OnInit {
     console.log(this.searched)
   }
   
-
+  getImage(){
+    return 'url(src/assets/Green.jpg)'
+  }
 
 getCode(){
   console.log(this.getPlay.login().subscribe)
@@ -63,89 +68,40 @@ getCode(){
     })
   }
 
-searched: Tracks3={
-  tracks:{
-    items:{
-      id:''
-    }
-  }
+// searched1: Item = {
+//   album: null,
+//   artists:[],
+//   available_markets: [],
+//   disc_number:0,
+//   duration_ms:0,
+//   explicit: false,
+//   external_ids: null,
+//   external_urls:null,
+//   href: "",
+//   id:"",
+//   is_local:false,
+//   name:"",
+//   popularity:0,
+//   preview_url:"",
+//   track_number:0,
+//   type:"",
+//   uri:""
+// }
+
+searched1: TrackJson= {
+  tracks: null
 }
 
+searched: Tracks={
+        href: '',
+        items: [],
+        limit: 0,
+        next: '',
+        offset: 0,
+        previous: null,
+        total: 0
+}
 
-// searched: Tracks2={
-//   tracks:null
-// }  
-searchedTrack: Tracks ={
-  show:{
-  tracks: {
-    href: '',
-    items: [
-        {
-            album: {
-                album_type: '',
-                artists: [
-                    {
-                        external_urls: {
-                            spotify: ''
-                        },
-                        href: '',
-                        id: '',
-                        name: '',
-                        type: '',
-                        uri: ''
-                    }
-                ],
-                available_markets: [],
-                external_urls: {
-                    spotify: ''
-                },
-                href: '',
-                id: '',
-                
-                name: '',
-                release_date: null,
-                release_date_precision: '',
-                total_tracks: 0,
-                type: '',
-                uri: ''
-            },
-            artists: [
-                {
-                    external_urls: {
-                        spotify: ''
-                    },
-                    href: '',
-                    id: '',
-                    name: '',
-                    type: '',
-                    uri: ''
-                }
-            ],
-            available_markets: [],
-            disc_number: 0,
-            duration_ms: 0,
-            explicit: false,
-            external_ids: {
-                isrc: ''
-            },
-            external_urls: {
-                spotify: ''
-            },
-            href: '',
-            id: '',
-            is_local: false,
-            name: '',
-            popularity: 0,
-            preview_url: '',
-            track_number: 0,
-            type: '',
-            uri: ''
-        }
-    ]
-    
-}
-}
-}
 
 currentTrack: Track ={
   trackId:"",
@@ -158,7 +114,7 @@ currentTrack: Track ={
      this.getPlay.newPlaylist().subscribe((data: Playlist)=> this.currentPlaylist ={
 
        name: data['id'],
-       description: data['description'],
+       description: data['name'],
        public: data['public']
      
 
@@ -174,46 +130,14 @@ currentTrack: Track ={
     });
     console.log(this.currentTrack.name)
   }
-
-  // searchForTrack(search:string){
-  //   this.getPlay.search(search).subscribe((data:Tracks2)=> this.searched ={
-  //     tracks: data['tracks.items']
-      
-  //   })
-  //   console.log(this.searched.tracks)
-  // }
-
-  searchForTrack(search:string){
-    this.getPlay.search(search).subscribe((data:Tracks3)=> this.searched={
-      tracks:{
-        items: {
-          id: data['tracks.items.id']
-          }
-        }
-      }) 
-      console.log(this.searched)
+  
+    searchedForTrack(search:string){
+      this.getPlay.search(search).subscribe((data:TrackJson)=> this.searched1 = {
+        tracks: data['tracks'] 
+      })
+      console.log(this.searched1.tracks.items[0].id)
     }
-  
-    
-  
 
-
-  // searchForTrack(search:string){
-  //     this.getPlay.search(search).subscribe((data:Tracks2)=> this.searched={
-  //       tracks: data['tracks']
-  //     })
-  //     console.log(this.searched)
-  //   }
-
-  // searchForTrack(search:string){
-  //   this.getPlay.search(search).subscribe((data:Tracks)=> this.searchedTrack={
-  //     show.['items']: data['tracks']
-      
-      
-
-  //   })
-  //   console.log(this.searchedTrack.show.tracks.items)
-  // }
 
   postTrack(playListId:string, track:string){
     this.getPlay.addTrack(playListId, track).subscribe((data: Track)=>this.currentTrack={
