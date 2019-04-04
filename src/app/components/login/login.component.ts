@@ -24,13 +24,23 @@ export class LoginComponent implements OnInit {
   }
 
   hide: boolean = true; 
+  error: boolean = false;
+  error2: boolean = false;
+  password2: string = '';
   
   showForm(){
     if(this.hide == true){
       this.hide = false;
-    } else {
-      this.hide = true;
+    } else if(this.hide == false && this.error == true) {
+      this.hide = false;
+      this.error = false;
     }
+  }
+
+  showForm2(){
+    this.hide = true;
+    this.error = false;
+    this.error2 = false;
   }
 
   login(event) {
@@ -40,12 +50,13 @@ export class LoginComponent implements OnInit {
       this.User.email = target.querySelector('#email').value
       this.User.password = target.querySelector('#password').value
       this.userService.loginUser(this.User).subscribe((response) => {
-          console.log(response + "logged in");
-          if(response[0]){
+          this.error2 = true;
+          console.log(response[0] + " log in");
+          if(response[0].email == this.User.email){
             this.route.navigateByUrl("/playlist");
           }
           
-          })
+        })
         
         
     }
@@ -55,10 +66,19 @@ export class LoginComponent implements OnInit {
       const target = event.target
       this.User.email = target.querySelector('#email').value
       this.User.password = target.querySelector('#password').value
+      this.password2 = target.querySelector('#password2').value
       this.User.playlistId = 'placeholder';
-      this.userService.addUser(this.User).subscribe((response) => {
-        console.log(response + "registered");
+      if(this.User.password == this.password2 && this.User.password != ''){
+        this.error = false;
+        this.hide = true;
+        this.userService.addUser(this.User).subscribe((response) => {
+        console.log(response.email + " registered.");
         })
+      } else {
+        this.error = true;
+        
+      }
+      
 
     }
 

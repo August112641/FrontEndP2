@@ -14,6 +14,7 @@
             <button class="button" (click)="showForm()">Register</button><br>
             <a *ngIf="!hide" (click)="showForm()" style="background-color:black; color:rgb(85, 255, 85)">Back to Login</a>
         </div>
+        <p [hidden]='!error2' style="color: red;">Invalid Account info.</p>
     </form>
     </div>
     <div [hidden]='hide' class="form">
@@ -26,7 +27,8 @@
         <input type="password" name="password2" id="password2" style="background-color:black; color:rgb(85, 255, 85); border:2px solid rgb(85, 255, 85)" required><br>
           <div>
               <button class="button" (click)="showForm()">Signup</button><br>
-              <a *ngIf="!hide" href="#" (click)="showForm()" style="background-color:black; color:rgb(85, 255, 85)">Back to Login</a>
+              <a *ngIf="!hide" href="#" (click)="showForm2()" style="background-color:black; color:rgb(85, 255, 85)">Back to Login</a>
           </div>
+          <p [hidden]='!error' style="color: red;">Passwords do not match/Fields are empty.</p>
       </form>
       </div>

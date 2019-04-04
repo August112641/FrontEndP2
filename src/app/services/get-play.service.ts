@@ -1,20 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
-import { Type } from '@angular/compiler';
+
 import { Playlist } from '../models/playList'
+import { TrackJson } from '../models/tacksJson';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQCu0U7A35nrnzm4h1KIM34Ybs8s4j21QaeRTSHAySFTksnmu1KMpw6E5n_n65lF_gu77BCZN-C5R6Ic7LgYqfaQy3dTxesgEPKcEt9zUxXdWJ_xBYeucUYjp6CRQOAnYjBEixB65x5WFm98tCPzSSGS_HhjxRwwzm6UCtMo2VoDl82z8zTzpX-T2ff1ObFBjzt_y2cVCQWIw1E0RlGIt5QqDQ',
+  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQBOL6rvJ8lNGu7FKMlMvK3tB24xql68C5WMXUmu1YwheLYrtjHr5AL5yrzTu3VBhLQ2KWYLEL-m6z_EMc3A8GQfhzwhQpbg2pJVz42XNIWzYRBPMya-YXnyHhgNyxuJqUasgZ5ZS1HqFGg4z4P1J5BZRexj3m1zr-DYT7rs3GWHcuJ6qLTd-SoTnjLo_lqrry743gGKRA1pgd9hcx1-ItGk0Q',
   'Content-Type':'application/json'})};
-var util = "";
 
-
-const loginHeader = {
-  headers: new HttpHeaders({'Authorization':'Access-Control-Allow-Origin'})
-};
 @Injectable({
   providedIn: 'root'
 })
@@ -24,19 +19,23 @@ export class GetPlayService {
   private baseUrl = 'https://api.spotify.com/v1/tracks/3n3Ppam7vgaVa1iaRUc9Lp';
   private addUrl = 'https://api.spotify.com/v1/playlists/'
   private loginUrl = 'https://accounts.spotify.com/authorize?client_id=de0fd359d4704084a2fd54a4a5798e9c&response_type=code&redirect_uri=http://localhost:8888/callback&scope=user-read-private%20user-read-email&state=34fFs29kd09'
-  private logU =     'https://accounts.spotify.com/authorize?client_id=de0fd359d4704084a2fd54a4a5798e9c&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email'
+  //private logU =     'https://accounts.spotify.com/authorize?client_id=de0fd359d4704084a2fd54a4a5798e9c&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email'
   private wUrl=  'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email'
-  private implicitUrl = 'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&redirect_uri=http://localhost:4200/callback&scope=user-read-private%20user-read-email&response_type=token&state=sdsfca'
-                          // https://accounts.spotify.com/authorize?client_id=5fe01282e94241328a84e7c5cc169164&redirect_uri=http:%2F%2Fexample.com%2Fcallback&scope=user-read-private%20user-read-email&response_type=token&state=123
-  constructor(
-    private http: HttpClient
-   ) { }
+  //private implicitUrl = 'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&redirect_uri=http://localhost:4200/callback&scope=user-read-private%20user-read-email&response_type=token&state=sdsfca'
+  private logU = 'http://3.83.115.122:8085/MVCBackEnd/users/';      
+  constructor(private http: HttpClient) { }
 
-    private log = btoa("username:password");
+  
+
+  localStorageTest(): Observable<Object>{
+    return this.http.get<Object>(this.logU);
+
+  } 
+
 
     private data: Playlist = {
       
-        name: "Anugular Playlist",
+        name: "ListenIn",
         description: "name",
         public: false
     
@@ -60,13 +59,15 @@ export class GetPlayService {
       return this.http.post<Track>(this.addUrl+playlist+"/tracks?uris=spotify:track:"+track,"", httpOptions);
     }
 
+    
+
    newPlaylist() : Observable<Playlist>{
 
     return this.http.post<Playlist>(this.creatUrl, this.data, httpOptions);
 
    }
 
-    getSomething(){
+    getSomething() {
       return this.http.get(this.baseUrl, httpOptions);
     }
 
@@ -74,12 +75,21 @@ export class GetPlayService {
     //   return this.http.get(this.searchUrl+query+'&type=track&limit=1',httpOptions);
 
     // }
-    search(query:string):Observable<Tracks3>{
-      return this.http.get<Tracks3>(this.searchUrl+query+'&type=track&limit=1',httpOptions);
+    // search(query:string):Observable<Tracks3>{
+    //   return this.http.get<Tracks3>(this.searchUrl+query+'&type=track&limit=1',httpOptions);
       
-    }
+    // }
+    // search(query:string):Observable<Item>{
+    //   return this.http.get<Item>(this.searchUrl+query+'&type=track&limit=1',httpOptions);
+    // }
+    
+    search(query:string):Observable<TrackJson>{
+        return this.http.get<TrackJson>(this.searchUrl+query+'&type=track&limit=1',httpOptions);
+      }
 
    getTrack(id: string ):Observable<Track>{
      return this.http.get<Track>(this.baseUrl, httpOptions);
    }
+
+
 }
