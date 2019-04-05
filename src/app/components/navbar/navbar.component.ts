@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   }
 
   b2login(){
-    //localStorage.removeItem("accessCode");
+    // localStorage.removeItem("accessCode");
     localStorage.clear();
     
     this.route.navigateByUrl("");

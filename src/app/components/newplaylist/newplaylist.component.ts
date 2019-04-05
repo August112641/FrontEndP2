@@ -19,7 +19,7 @@ import { Item, Tracks, Album, Artist2,ExternalIds,ExternalUrls4, TrackJson } fro
   styleUrls: ['./newplaylist.component.css']
 })
 export class NewplaylistComponent implements OnInit {
- green  ='Green.jpg';
+ green  ="Green.jpg";
  orange = "Orange.jpg";
  world = 'SpotEarth-min.jpg';
   name: string = 'lu';

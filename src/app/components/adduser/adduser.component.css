@@ -6,6 +6,7 @@
 }
 
 
+
 /* body{
     background-color: green;
 } */
@@ -13,6 +14,11 @@
  /* #friends{
     background-color: #1db954;
 } */
+td:hover{
+    color:#1db954;
+    background-color: black;   
+}
+
 
 th,h1,td{
     color: black

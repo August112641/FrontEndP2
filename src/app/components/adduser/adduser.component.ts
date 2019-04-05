@@ -33,8 +33,7 @@ export class AdduserComponent implements OnInit {
     this.getUser1()
     console.log(this.obj2[0].id)
     console.log(this.SplaylistId)
-    // this.getPlaylist()
-    // console.log(this.getPlaylist)
+    
     this.getPlay()
   }
  
@@ -63,12 +62,7 @@ getPlay(){
   console.log(this.currentPlaylists.playlist)
 }
 
-// getPlaylist(){
-//   this.addServ.getPlay().subscribe((data:Object)=> this.currentPlaylists={
-//     playlist: data
-//   })
-//   console.log(this.currentPlaylists)
-// }
+
 
 getUser1(){
   this.userService.getUsers2().subscribe((data: [])=> this.currentUsers1={

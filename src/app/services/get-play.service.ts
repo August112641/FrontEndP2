@@ -28,7 +28,7 @@ export class GetPlayService {
   
   private code = localStorage.getItem("accessCode");
  private httpOptions = {
-  headers: new HttpHeaders({'Authorization': 'Bearer '+ this.code,
+  headers: new HttpHeaders({'Authorization': 'Bearer '+ 'BQBO5BDFSYQ49uilk14ku11bcilo0ep3n77Myln3asP0Jzal7Lw-IvXNm7uSf-UaQVH7JS4ooR6cQIhCDSZc4mZKIqUJiDuHnktEfKQHvLTdwkxXnC-FpPLyTRuPSpVHI7ZzuDSyfznIcIWy3nXDl_4Ak5VqHNZrKQoVlgj1t3G58mmmZ779xd29IAknF35ZNbVZ0QcA7P4cFAEodZ1pGo22tg',
   'Content-Type':'application/json'})
 }
   constructor(private http: HttpClient) { }
