@@ -15,17 +15,24 @@ export class UserService {
   HttpOptions = {headers: new HttpHeaders ({'Content-Type': 'application/json'})}
   id:number;
 
+
   private url= 'https://jsonplaceholder.typicode.com/posts';
   loginUrl = 'http://3.83.115.122:8085/MVCBackEnd/users/login';
-  addUrl = 'http://3.83.115.122:8085/MVCBackEnd/users';
+  addUrl = 'http://3.83.115.122:8085/MVCBackEnd/users/';
 
   
   constructor(private http: HttpClient) { }
+
+  private obj = localStorage.getItem("LoggedUser");
+  obj2 = JSON.parse(this.obj);
 
     getUsers2(): Observable <Object[]>{
       return this.http.get<Object[]>(this.addUrl)
     }
   
+    getList(): Observable<Object>{
+      return this.http.get<Object>(this.addUrl+ this.obj2[0].id)
+    }
 
   getUser(id: number): Observable <User[]> {
     console.log("Getting user"+id);
@@ -42,6 +49,7 @@ export class UserService {
 
   loginUser(User): Observable<User>{
     console.log("loggin in..."+User.email); 
+    console.log(User);
     return this.http.post<User>(this.loginUrl, User, this.HttpOptions);
   }
 

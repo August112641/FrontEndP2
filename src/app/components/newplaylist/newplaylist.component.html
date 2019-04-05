@@ -1,11 +1,13 @@
 <html>
-
+        <app-navbar></app-navbar> 
 <body [ngStyle] = "{'background':  'url('+ orange +')'}">
-                <p id = 'current'>{{currentPlaylist.description}}</p>
+        <p id = 'current'>{{currentPlaylist.description}}</p>
         <div class="container">
+               
                 <div class = "row">
                         <div class="col-md-2">
                                 <button  class="btn btn-dark" (click) = 'showNewPlayistId()'>New playlist</button>
+                                <input [(ngModel)] = 'code' placeholder="access code" name = 'code'><button (click) = 'saveAccessCode(code)'>SuBmit</button>
                          </div>
                         <div class ="col-md-4">
                                 <iframe [src]=  cleanUrl(currentPlaylist.name) width ="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -22,12 +24,13 @@
                                 <input     [(ngModel)] = 'search' name = 'search' >
                                 <button (click) = 'searchedForTrack(search)'>Search</button>
                                 <button (click) = 'postTrack(currentPlaylist.name, searched1.tracks.items[0].id)'>Add Track</button>
+                                <button (click) = savePlaylist()>Save list</button>
                         </div>
                         <div class = "col-md-4"></div>
                 </div>
         </div>
-        <button (click) = localTest()>Make Sure to Delete this</button>
-        <button (click) = savePlaylist()>Save list</button>
+        
+        
         <router-outlet></router-outlet>
 </body>
 </html>

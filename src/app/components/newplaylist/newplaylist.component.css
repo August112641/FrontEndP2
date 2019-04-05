@@ -12,9 +12,9 @@
 #current{
     color: bisque;
 }
-/* *{
+body{
     background-color: orangered
-} */
+}
 
 #mv{
     left: 12px;

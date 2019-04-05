@@ -2,18 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Playlist } from '../models/playList'
+import { Playlist2 } from '../models/playList'
 import { TrackJson } from '../models/tacksJson';
 
-
-const httpOptions = {
-  headers: new HttpHeaders({'Authorization': 'Bearer '+'BQBOL6rvJ8lNGu7FKMlMvK3tB24xql68C5WMXUmu1YwheLYrtjHr5AL5yrzTu3VBhLQ2KWYLEL-m6z_EMc3A8GQfhzwhQpbg2pJVz42XNIWzYRBPMya-YXnyHhgNyxuJqUasgZ5ZS1HqFGg4z4P1J5BZRexj3m1zr-DYT7rs3GWHcuJ6qLTd-SoTnjLo_lqrry743gGKRA1pgd9hcx1-ItGk0Q',
-  'Content-Type':'application/json'})};
+// const code = localStorage.getItem("accessCode");
+// const httpOptions = {
+//   headers: new HttpHeaders({'Authorization': 'Bearer '+ code,
+//   'Content-Type':'application/json'})};
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetPlayService {
+
+
   private searchUrl = 'https://api.spotify.com/v1/search?q='
   private creatUrl = 'https://api.spotify.com/v1/users/1244653463/playlists'
   private baseUrl = 'https://api.spotify.com/v1/tracks/3n3Ppam7vgaVa1iaRUc9Lp';
@@ -22,10 +24,18 @@ export class GetPlayService {
   //private logU =     'https://accounts.spotify.com/authorize?client_id=de0fd359d4704084a2fd54a4a5798e9c&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email'
   private wUrl=  'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&response_type=code&redirect_uri=http://localhost:4200/callback&state=sdsfca&scope=user-read-private%20user-read-email'
   //private implicitUrl = 'https://accounts.spotify.com/authorize?client_id=b72324b7926347dc83e63ae5d04366f4&redirect_uri=http://localhost:4200/callback&scope=user-read-private%20user-read-email&response_type=token&state=sdsfca'
-  private logU = 'http://3.83.115.122:8085/MVCBackEnd/users/';      
+  private logU = 'http://3.83.115.122:8085/MVCBackEnd/users/';   
+  
+  private code = localStorage.getItem("accessCode");
+ private httpOptions = {
+  headers: new HttpHeaders({'Authorization': 'Bearer '+ this.code,
+  'Content-Type':'application/json'})
+}
   constructor(private http: HttpClient) { }
 
   
+
+
 
   localStorageTest(): Observable<Object>{
     return this.http.get<Object>(this.logU);
@@ -33,7 +43,7 @@ export class GetPlayService {
   } 
 
 
-    private data: Playlist = {
+    private data: Playlist2 = {
       
         name: "ListenIn",
         description: "name",
@@ -46,29 +56,31 @@ export class GetPlayService {
     getConfigResponse(): Observable<HttpResponse<AccessCode>> {
       return this.http.get<AccessCode>(
         this.wUrl, { observe: 'response' });
+        
     }
 
     login():Observable<AccessCode>{
-      return this.http.post<AccessCode>(this.wUrl,httpOptions);
+      return this.http.post<AccessCode>(this.wUrl,this.httpOptions);
+      
     }
 
     logins(){
       this.http.get(this.loginUrl);
     }
     addTrack(playlist:string, track:string ) : Observable<Track>{
-      return this.http.post<Track>(this.addUrl+playlist+"/tracks?uris=spotify:track:"+track,"", httpOptions);
+      return this.http.post<Track>(this.addUrl+playlist+"/tracks?uris=spotify:track:"+track,"", this.httpOptions);
     }
 
     
 
-   newPlaylist() : Observable<Playlist>{
-
-    return this.http.post<Playlist>(this.creatUrl, this.data, httpOptions);
-
+   newPlaylist() : Observable<Playlist2>{
+    console.log(this.code)
+    return this.http.post<Playlist2>(this.creatUrl, this.data, this.httpOptions);
+    
    }
 
     getSomething() {
-      return this.http.get(this.baseUrl, httpOptions);
+      return this.http.get(this.baseUrl, this.httpOptions);
     }
 
     // search(query:string){
@@ -84,11 +96,11 @@ export class GetPlayService {
     // }
     
     search(query:string):Observable<TrackJson>{
-        return this.http.get<TrackJson>(this.searchUrl+query+'&type=track&limit=1',httpOptions);
+        return this.http.get<TrackJson>(this.searchUrl+query+'&type=track&limit=1',this.httpOptions);
       }
 
    getTrack(id: string ):Observable<Track>{
-     return this.http.get<Track>(this.baseUrl, httpOptions);
+     return this.http.get<Track>(this.baseUrl, this.httpOptions);
    }
 
 

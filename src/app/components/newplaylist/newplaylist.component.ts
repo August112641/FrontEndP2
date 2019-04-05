@@ -5,7 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 
 
-import { Playlist } from '../../models/playList';
+import { Playlist, Playlist2 } from '../../models/playList';
 import { Item, Tracks, Album, Artist2,ExternalIds,ExternalUrls4, TrackJson } from '../../models/tacksJson';
 
 
@@ -36,7 +36,7 @@ export class NewplaylistComponent implements OnInit {
     code:""
   }
 
-  currentPlaylist: Playlist = {
+  currentPlaylist: Playlist2 = {
     name: "",
     description: "",
     public: false
@@ -64,7 +64,10 @@ export class NewplaylistComponent implements OnInit {
 
   }
 
- 
+ saveAccessCode(code:string){
+    localStorage.setItem("accessCode", code)
+    console.log(code)
+ }
 
 searched1: TrackJson= {
   tracks: null
@@ -89,7 +92,7 @@ currentTrack: Track ={
   playlistLink: string = this.PlaylistHref + this.currentPlaylist.name;
   showNewPlayistId(){
    
-     this.getPlay.newPlaylist().subscribe((data: Playlist)=> this.currentPlaylist ={
+     this.getPlay.newPlaylist().subscribe((data: Playlist2)=> this.currentPlaylist ={
 
        name: data['id'],
        description: data['name'],

@@ -13,7 +13,7 @@ import { NewplaylistComponent } from './components/newplaylist/newplaylist.compo
 import { Router, Routes, RouterModule } from '@angular/router';
 import { AdduserComponent } from './components/adduser/adduser.component';
 import { LoginComponent } from './components/login/login.component';
-import { NavComponent } from './components/nav/nav.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 const appRoutes: Routes = [
@@ -30,6 +30,9 @@ const appRoutes: Routes = [
 },{
   path: 'login',
   component: LoginComponent
+},{
+  path: '',
+  component: LoginComponent
 }
 
 
@@ -43,7 +46,7 @@ const appRoutes: Routes = [
     // AddTrackComponent,
     AdduserComponent,
     LoginComponent,
-    NavComponent,
+    NavbarComponent,
     
     
   ],

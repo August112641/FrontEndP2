@@ -4,7 +4,7 @@ body {
 
 input[type=submit] {
     padding:5px 15px; 
-    background:rgb(103, 250, 115); 
+    background:#1db954; 
     border:0 none;
     cursor:pointer;
     color: black;
@@ -14,12 +14,12 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: black;
-    color: rgb(103, 250, 115);
+    color: #1db954;
 }
 
 .button {
     padding:5px 15px; 
-    background:rgb(103, 250, 115); 
+    background:#1db954; 
     border:0 none;
     cursor:pointer;
     color: black;
@@ -29,11 +29,11 @@ input[type=submit]:hover {
 
 .button:hover{
     background-color: black;
-    color: rgb(103, 250, 115);
+    color: #1db954;
 }
 
 #header {
-    background-color:rgb(103, 250, 115);
+    background-color:#1db954;
     color: black;
     font-family: 'Raleway', sans-serif;
     text-align: center;
@@ -43,15 +43,16 @@ input[type=submit]:hover {
 }
 
 .form {
-    background-image: url("https://pre00.deviantart.net/88ea/th/pre/f/2017/201/5/2/mmd_green_flare_by_kkinatv-dbgzlzd.png");
+    background-color: #1db954;
+    /* background-image: url("https://pre00.deviantart.net/88ea/th/pre/f/2017/201/5/2/mmd_green_flare_by_kkinatv-dbgzlzd.png"); */
     background-size: cover;
-    color: rgb(103, 250, 103);
+    color: black;
     padding: 10px;
-    border: 2px solid rgb(103, 250, 115);
+    border: 2px solid #1db954;
     border-radius: 5px;
     text-align: center;
-    width: 45%;
-    height:50%;
+     width: 35%;
+    /* height:50%;  */
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
